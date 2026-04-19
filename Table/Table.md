@@ -14,6 +14,8 @@ Slay the Spire 스타일 덱빌딩 로그라이크 게임의 데이터 테이블
 | [chapter.csv](chapter.csv) | 챕터 설정 | id |
 | [event.csv](event.csv) | 이벤트 노드 데이터 | id |
 | [node.csv](node.csv) | 노드 타입 및 가중치 | id |
+| [chapter_map.csv](chapter_map.csv) | 챕터 맵 (노드 배치 및 분기) | id |
+| [map_gen_rule.csv](map_gen_rule.csv) | 맵 생성 알고리즘 규칙 (Slay the Spire 방식) | id |
 
 ---
 
@@ -140,6 +142,62 @@ Slay the Spire 스타일 덱빌딩 로그라이크 게임의 데이터 테이블
 | node_type | NORMAL_BATTLE / ELITE_BATTLE / SHOP / TOWN / EVENT / TREASURE / UNKNOWN / BOSS / START |
 | weight | 랜덤 배치 가중치 |
 | min_floor / max_floor | 등장 가능한 층 범위 (1~13, 0=시작, 15=보스) |
+
+---
+
+## chapter_map.csv
+
+각 챕터의 노드 배치와 분기 연결을 정의. node.csv의 `node_type` 을 참조.
+
+| 컬럼 | 타입 | 설명 |
+|------|------|------|
+| id | string | 노드 고유 ID (`M{챕터}_F{층}_{열}`) |
+| chapter | string | 소속 챕터 (chapter.csv 참조) |
+| floor | int | 층 번호 (0=시작, 1~13=컨텐츠, 14=휴식, 15=보스) |
+| col | int | 열 위치 (1~3, UI 배치용) |
+| node_type | enum | node.csv 의 node_type 참조 |
+| next_nodes | string | 다음 층 연결 노드 ID 목록 (콤마 구분, 1~3개) |
+
+### 1챕터 맵 구조
+- 0층: START 1노드 (3갈래)
+- 1~13층: 각 층 2~3노드. 2갈래/3갈래 분기 혼합
+- 14층: TOWN 1노드 (보스 직전 휴식)
+- 15층: BOSS 1노드
+- 3갈래 분기: 0층 시작, 2층 중앙, 6층 중앙, 10층 중앙
+- 보장 노드: 4층/9층/12층 엘리트, 7층 보물, 14층 마을
+
+---
+
+## map_gen_rule.csv
+
+Slay the Spire 스타일 맵 생성 알고리즘의 규칙을 key-value 형태로 정의.
+`chapter_map.csv` 는 하드코딩된 초기 맵이고, 향후 절차적 생성 시 이 규칙을 참조.
+
+| 컬럼 | 타입 | 설명 |
+|------|------|------|
+| id | string | 규칙 ID (R001~) |
+| rule_category | enum | PATH / FIXED_FLOOR / GUARANTEE_FLOOR / MIN_FLOOR / NO_PARENT_SAME / NO_SAME_FLOOR / BRANCH / WEIGHT / VALIDATION |
+| rule_key | string | 카테고리 내부 세부 키 (층 번호, 노드 타입 등) |
+| value | string | 규칙 값 (숫자/enum/TRUE·FALSE/콤마구분 리스트) |
+| description | string | 규칙 설명 |
+
+### rule_category 설명
+
+| 카테고리 | 목적 |
+|----------|------|
+| PATH | 맵 경로 생성 방식 (경로 개수, 교차 금지, UI 열 범위) |
+| FIXED_FLOOR | 특정 층에 고정 배치되는 노드 타입 (1층 전투, 7층 보물, 14층 휴식, 15층 보스) |
+| GUARANTEE_FLOOR | 해당 층의 여러 노드 중 최소 1개는 지정 타입 보장 (엘리트 분산) |
+| MIN_FLOOR | 노드 타입별 최소 등장 층 (초반 밸런싱) |
+| NO_PARENT_SAME | 부모-자식 연결 시 같은 타입 연속 금지 |
+| NO_SAME_FLOOR | 같은 층 내 같은 타입 중복 금지 |
+| BRANCH | 분기 규칙 (3갈래 발생 층, 연결 노드 개수 범위) |
+| WEIGHT | 타입별 랜덤 가중치 출처 (`node.csv`) |
+| VALIDATION | 하드코딩 맵 검수용 총 개수 체크 |
+
+### 참고
+- 현재는 1챕터 기준 규칙. 챕터별로 다르게 할 경우 `chapter_id` 컬럼 추가 고려.
+- 랜덤 가중치 자체는 `node.csv` 의 `weight` 에 분리되어 있음. 본 테이블은 "배치 제약"만 담당.
 
 ---
 
