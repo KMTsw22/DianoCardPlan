@@ -64,9 +64,14 @@ export async function POST(request: Request) {
       frameCount: number;
       description?: string;
       promptOverride?: string;
+      extraRefImage?: { base64: string; mimeType: string } | null;
     };
 
     const { refId, refSource, motion, frameCount, description = "" } = body;
+    const extraRef: RefImage | null =
+      body.extraRefImage && body.extraRefImage.base64
+        ? { base64: body.extraRefImage.base64, mimeType: body.extraRefImage.mimeType || "image/png" }
+        : null;
 
     if (!refId) return Response.json({ error: "refId required" }, { status: 400 });
     if (!MOTIONS.includes(motion))
@@ -112,12 +117,14 @@ export async function POST(request: Request) {
         styleRefs.length > 0
           ? `\n\n# 스타일 레퍼런스\n첨부된 이미지 중 앞쪽 ${styleRefs.length}장은 게임의 공식 스타일 샘플. 화풍·색감·디테일 수준을 맞춰라.\n`
           : "";
-      const prompt = baseTemplate + styleNote;
+      const extraRefNote = extraRef
+        ? `\n\n# 추가 참조 이미지\n첨부된 이미지 중 마지막 1장은 사용자가 첨부한 추가 참조(구도·포즈·이펙트 참고용). 캐릭터 디자인은 바꾸지 말 것 — 이 이미지는 포즈/구도/분위기 참고 용도일 뿐.\n`
+        : "";
+      const prompt = baseTemplate + styleNote + extraRefNote;
 
-      const { base64 } = await generateImage(prompt, agent.model_image, [
-        ...styleRefs,
-        ref,
-      ]);
+      const refsForCall: RefImage[] = [...styleRefs, ref];
+      if (extraRef) refsForCall.push(extraRef);
+      const { base64 } = await generateImage(prompt, agent.model_image, refsForCall);
       const buf = Buffer.from(base64, "base64");
       const normalized = await sharp(buf)
         .resize(agent.output.width, agent.output.height, {
