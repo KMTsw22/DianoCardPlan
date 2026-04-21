@@ -14,6 +14,11 @@ export default function MoveBoardPage() {
   const [motion, setMotion] = useState<Motion>("attack");
   const [frameCount, setFrameCount] = useState(4);
   const [description, setDescription] = useState("");
+  const [extraRefImage, setExtraRefImage] = useState<{
+    base64: string;
+    mimeType: string;
+    previewUrl: string;
+  } | null>(null);
   const [prompt, setPrompt] = useState("");
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -97,6 +102,9 @@ export default function MoveBoardPage() {
           frameCount,
           description,
           promptOverride: prompt,
+          extraRefImage: extraRefImage
+            ? { base64: extraRefImage.base64, mimeType: extraRefImage.mimeType }
+            : null,
         }),
       });
       const d = await r.json();
@@ -249,9 +257,78 @@ export default function MoveBoardPage() {
               <input
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="예: 꼬리로 후려치는 공격"
+                onPaste={async (e) => {
+                  const item = Array.from(e.clipboardData.items).find((it) =>
+                    it.type.startsWith("image/")
+                  );
+                  if (!item) return;
+                  e.preventDefault();
+                  const file = item.getAsFile();
+                  if (!file) return;
+                  const buf = await file.arrayBuffer();
+                  const base64 = btoa(
+                    new Uint8Array(buf).reduce((s, b) => s + String.fromCharCode(b), "")
+                  );
+                  const previewUrl = URL.createObjectURL(file);
+                  setExtraRefImage({ base64, mimeType: file.type || "image/png", previewUrl });
+                }}
+                placeholder="예: 꼬리로 후려치는 공격 (이미지는 Ctrl+V로 붙여넣기 가능)"
                 className="w-full px-3 py-2 rounded bg-zinc-900 border border-zinc-800 text-sm"
               />
+              <div className="mt-2 flex items-center gap-2">
+                <label className="px-2 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-300 cursor-pointer border border-zinc-700">
+                  📎 이미지 첨부
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      const buf = await file.arrayBuffer();
+                      const base64 = btoa(
+                        new Uint8Array(buf).reduce(
+                          (s, b) => s + String.fromCharCode(b),
+                          ""
+                        )
+                      );
+                      const previewUrl = URL.createObjectURL(file);
+                      setExtraRefImage({
+                        base64,
+                        mimeType: file.type || "image/png",
+                        previewUrl,
+                      });
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+                <span className="text-[11px] text-zinc-500">
+                  또는 위 입력칸에서 Ctrl+V로 붙여넣기
+                </span>
+              </div>
+              {extraRefImage && (
+                <div className="mt-2 p-2 rounded bg-zinc-900 border border-zinc-800 flex items-start gap-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={extraRefImage.previewUrl}
+                    alt="extra ref"
+                    className="w-20 h-20 object-contain rounded border border-zinc-700 bg-white"
+                  />
+                  <div className="flex-1 text-[11px] text-zinc-400">
+                    추가 참조 이미지가 첨부되었습니다. 캐릭터 디자인은 바꾸지 않고 포즈/구도/분위기 참고용으로 쓰입니다.
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      URL.revokeObjectURL(extraRefImage.previewUrl);
+                      setExtraRefImage(null);
+                    }}
+                    className="px-2 py-1 rounded bg-red-900 hover:bg-red-800 text-[11px] text-red-200"
+                  >
+                    제거
+                  </button>
+                </div>
+              )}
             </div>
 
             <div>
@@ -307,7 +384,7 @@ export default function MoveBoardPage() {
                   <img
                     src={result.publicSheetPath}
                     alt="sheet"
-                    className="rounded border border-zinc-700 w-full bg-[repeating-conic-gradient(#27272a_0%_25%,#3f3f46_0%_50%)] bg-[length:16px_16px]"
+                    className="rounded border border-zinc-700 w-full bg-white"
                   />
                 </div>
                 <div className="p-4 rounded-lg border border-zinc-800 bg-zinc-900">
@@ -344,7 +421,7 @@ export default function MoveBoardPage() {
                         <img
                           src={p}
                           alt={`f${i + 1}`}
-                          className="rounded border border-zinc-700 w-full bg-[repeating-conic-gradient(#27272a_0%_25%,#3f3f46_0%_50%)] bg-[length:12px_12px]"
+                          className="rounded border border-zinc-700 w-full bg-white"
                         />
                         <a
                           href={p}
