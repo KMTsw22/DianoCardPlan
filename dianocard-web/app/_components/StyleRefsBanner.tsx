@@ -11,6 +11,7 @@ type EntityResponse = {
   effective: "entity" | "auto" | "agent";
   entity: ScopeInfo;
   agentScope: ScopeInfo;
+  env: ScopeInfo;
   auto: AutoInfo;
 };
 
@@ -32,6 +33,7 @@ type Props = {
 export default function StyleRefsBanner({ agent, entityId }: Props) {
   const [entity, setEntity] = useState<ScopeInfo | null>(null);
   const [agentScope, setAgentScope] = useState<ScopeInfo | null>(null);
+  const [env, setEnv] = useState<ScopeInfo | null>(null);
   const [effective, setEffective] = useState<"entity" | "auto" | "agent" | null>(null);
   const [auto, setAuto] = useState<AutoInfo | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -49,6 +51,7 @@ export default function StyleRefsBanner({ agent, entityId }: Props) {
         .then((d: EntityResponse) => {
           setEntity(d.entity);
           setAgentScope(d.agentScope);
+          setEnv(d.env);
           setEffective(d.effective);
           setAuto(d.auto);
         })
@@ -56,11 +59,19 @@ export default function StyleRefsBanner({ agent, entityId }: Props) {
     } else {
       fetch(`/api/style-refs?agent=${encodeURIComponent(agent)}`)
         .then((r) => r.json())
-        .then((d: { count: number; files: string[]; dir?: string }) => {
-          setAgentScope({ count: d.count, files: d.files, dir: d.dir });
-          setEntity(null);
-          setEffective(null);
-        })
+        .then(
+          (d: {
+            count: number;
+            files: string[];
+            dir?: string;
+            env?: ScopeInfo;
+          }) => {
+            setAgentScope({ count: d.count, files: d.files, dir: d.dir });
+            setEnv(d.env ?? null);
+            setEntity(null);
+            setEffective(null);
+          },
+        )
         .catch(() => {});
     }
   }, [agent, entityId]);
@@ -115,11 +126,40 @@ export default function StyleRefsBanner({ agent, entityId }: Props) {
     if (e.dataTransfer?.files?.length) uploadFiles(e.dataTransfer.files);
   };
 
+  // 환경(맵) 레퍼런스 표시용 — 있을 때만. 엔티티·agent 모드 둘 다에서 재사용.
+  const envRow =
+    env && env.count > 0 ? (
+      <div className="p-2 rounded border border-sky-900 bg-sky-950/40">
+        <div className="flex items-center justify-between mb-1.5">
+          <div className="text-xs text-sky-300 font-medium">
+            🗺️ 환경 레퍼런스 (배경 맵) {env.count}장 — 항상 첨부됨
+          </div>
+          <code className="text-[10px] text-sky-700">
+            references/{agent}/_env/
+          </code>
+        </div>
+        <div className="flex gap-2 overflow-x-auto">
+          {env.files.map((f) => (
+            <div key={f} className="flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/api/style-refs/file?agent=${encodeURIComponent(agent)}&scope=env&file=${encodeURIComponent(f)}`}
+                alt={f}
+                title={f}
+                className="w-20 h-12 rounded border border-sky-800 object-cover bg-zinc-950"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : null;
+
   // 엔티티 모드 — 전용 폴더 영역 + agent 공용 영역 동시 표시
   if (entityId) {
     const usingEntity = effective === "entity";
     return (
       <div className="space-y-2">
+        {envRow}
         {/* 엔티티 전용 */}
         <div
           ref={dropRef}
@@ -241,51 +281,57 @@ export default function StyleRefsBanner({ agent, entityId }: Props) {
 
   if (agentScope.count === 0) {
     return (
-      <div
-        onDragOver={(e) => e.preventDefault()}
-        onDrop={handleDrop}
-        className="p-3 rounded border border-dashed border-zinc-700 bg-zinc-900/40 text-xs text-zinc-500"
-      >
-        스타일 레퍼런스 없음. <code className="text-zinc-400">references/{agent}/</code> 에
-        PNG/JPG를 드롭(이 박스에 끌어놔도 됨)하면 다음 생성부터 자동 첨부돼요.
+      <div className="space-y-2">
+        {envRow}
+        <div
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDrop}
+          className="p-3 rounded border border-dashed border-zinc-700 bg-zinc-900/40 text-xs text-zinc-500"
+        >
+          스타일 레퍼런스 없음. <code className="text-zinc-400">references/{agent}/</code> 에
+          PNG/JPG를 드롭(이 박스에 끌어놔도 됨)하면 다음 생성부터 자동 첨부돼요.
+        </div>
       </div>
     );
   }
 
   return (
-    <div
-      onDragOver={(e) => e.preventDefault()}
-      onDrop={handleDrop}
-      className="p-3 rounded border border-emerald-900 bg-emerald-950/40"
-    >
-      <div className="flex items-center justify-between mb-2">
-        <div className="text-xs text-emerald-300 font-medium">
-          스타일 레퍼런스 {agentScope.count}장 자동 첨부 중
-        </div>
-        <code className="text-[10px] text-emerald-700">references/{agent}/</code>
-      </div>
-      <div className="flex gap-2 overflow-x-auto">
-        {agentScope.files.map((f) => (
-          <div key={f} className="relative flex-shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/api/style-refs/file?agent=${encodeURIComponent(
-                agent,
-              )}&file=${encodeURIComponent(f)}`}
-              alt={f}
-              title={f}
-              className="w-14 h-14 rounded border border-emerald-800 object-cover bg-zinc-950"
-            />
-            <button
-              type="button"
-              onClick={() => deleteFile(f, "agent")}
-              title="삭제"
-              className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-700 hover:bg-red-600 text-white text-[10px] leading-none"
-            >
-              ×
-            </button>
+    <div className="space-y-2">
+      {envRow}
+      <div
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={handleDrop}
+        className="p-3 rounded border border-emerald-900 bg-emerald-950/40"
+      >
+        <div className="flex items-center justify-between mb-2">
+          <div className="text-xs text-emerald-300 font-medium">
+            스타일 레퍼런스 {agentScope.count}장 자동 첨부 중
           </div>
-        ))}
+          <code className="text-[10px] text-emerald-700">references/{agent}/</code>
+        </div>
+        <div className="flex gap-2 overflow-x-auto">
+          {agentScope.files.map((f) => (
+            <div key={f} className="relative flex-shrink-0">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/api/style-refs/file?agent=${encodeURIComponent(
+                  agent,
+                )}&file=${encodeURIComponent(f)}`}
+                alt={f}
+                title={f}
+                className="w-14 h-14 rounded border border-emerald-800 object-cover bg-zinc-950"
+              />
+              <button
+                type="button"
+                onClick={() => deleteFile(f, "agent")}
+                title="삭제"
+                className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-700 hover:bg-red-600 text-white text-[10px] leading-none"
+              >
+                ×
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

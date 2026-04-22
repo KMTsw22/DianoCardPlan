@@ -25,6 +25,16 @@ export function entityRefDir(agentName: string, entityId: string): string {
   return path.join(agentRefDir(agentName), entityId);
 }
 
+/**
+ * 환경(맵) 레퍼런스 폴더. `references/{agent}/_env/`.
+ * 여기 이미지는 스타일/엔티티 ref와 별개로 **항상** 생성 프롬프트에 첨부된다 —
+ * 화풍이 아니라 "이 캐릭터가 설 배경 맵"을 알려주는 용도.
+ * 언더스코어 prefix라 entityId 폴더(E001 등)와 충돌 없음.
+ */
+export function envRefDir(agentName: string): string {
+  return path.join(agentRefDir(agentName), "_env");
+}
+
 async function listImageFiles(dir: string): Promise<string[]> {
   try {
     const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -124,6 +134,23 @@ export async function resolveStyleRefs(
     if (autoRefs.length > 0) return autoRefs;
   }
   return loadStyleRefs(agentName);
+}
+
+// =========================================================
+// Environment refs (배경 맵 — 모든 엔티티에 항상 첨부)
+// =========================================================
+
+export async function listEnvRefFiles(agentName: string): Promise<string[]> {
+  return listImageFiles(envRefDir(agentName));
+}
+
+export async function loadEnvRefs(agentName: string): Promise<RefImage[]> {
+  return loadRefsFromDir(envRefDir(agentName));
+}
+
+export async function envRefsInfo(agentName: string) {
+  const files = await listEnvRefFiles(agentName);
+  return { count: files.length, files, dir: envRefDir(agentName) };
 }
 
 /** UI용: 어느 소스가 실제 사용될지 + 자동 선택된 이웃 ID 목록을 계산해 리턴. */

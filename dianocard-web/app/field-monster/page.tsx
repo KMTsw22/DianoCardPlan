@@ -1,6 +1,7 @@
 "use client";
 
 import EntityGenerator, { EntityItem } from "../_components/EntityGenerator";
+import RandomMonsterPanel from "../_components/RandomMonsterPanel";
 
 type EnemyRow = {
   id: string;
@@ -36,6 +37,7 @@ export default function FieldMonsterPage() {
       }
       postGenerateUrl="/api/generate-field-monster"
       postBody={(id, promptOverride) => ({ enemyId: id, promptOverride })}
+      topPanel={<RandomMonsterPanel />}
     />
   );
 }
