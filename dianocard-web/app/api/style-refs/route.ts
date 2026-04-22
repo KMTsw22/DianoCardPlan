@@ -2,6 +2,7 @@ import {
   styleRefsInfo,
   entityRefsInfo,
   ensureEntityRefDir,
+  envRefsInfo,
 } from "@/lib/style-refs";
 import { autoRefsFor } from "@/lib/auto-refs";
 
@@ -18,7 +19,10 @@ export async function GET(request: Request) {
   const entityId = url.searchParams.get("entityId");
   if (!agent) return Response.json({ error: "agent required" }, { status: 400 });
 
-  const agentInfo = await styleRefsInfo(agent);
+  const [agentInfo, envInfo] = await Promise.all([
+    styleRefsInfo(agent),
+    envRefsInfo(agent),
+  ]);
   if (entityId) {
     const entityInfo = await entityRefsInfo(agent, entityId);
     // 엔티티 폴더가 비면 auto-ref 후보도 체크
@@ -37,6 +41,7 @@ export async function GET(request: Request) {
       effective,
       entity: entityInfo,
       agentScope: agentInfo,
+      env: envInfo, // 배경 맵 — 항상 첨부됨
       auto: {
         count: auto.refs.length,
         neighborIds: auto.neighborIds,
@@ -44,7 +49,7 @@ export async function GET(request: Request) {
       },
     });
   }
-  return Response.json({ agent, ...agentInfo });
+  return Response.json({ agent, ...agentInfo, env: envInfo });
 }
 
 /**

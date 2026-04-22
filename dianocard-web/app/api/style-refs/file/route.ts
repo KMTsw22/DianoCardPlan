@@ -23,6 +23,7 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   const agent = sanitize(url.searchParams.get("agent") ?? "");
   const entityId = sanitize(url.searchParams.get("entityId") ?? "");
+  const scope = url.searchParams.get("scope"); // "env" → references/{agent}/_env/
   const file = sanitize(url.searchParams.get("file") ?? "");
   if (!agent || !file) {
     return new Response("agent and file required", { status: 400 });
@@ -32,7 +33,12 @@ export async function GET(request: Request) {
   if (!mime) return new Response("unsupported ext", { status: 400 });
 
   const base = path.join(process.cwd(), "references", agent);
-  const filePath = entityId ? path.join(base, entityId, file) : path.join(base, file);
+  const filePath =
+    scope === "env"
+      ? path.join(base, "_env", file)
+      : entityId
+        ? path.join(base, entityId, file)
+        : path.join(base, file);
   try {
     const buf = await fs.readFile(filePath);
     const ab = new ArrayBuffer(buf.byteLength);

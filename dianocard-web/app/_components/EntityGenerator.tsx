@@ -21,6 +21,8 @@ type Props = {
   postGenerateUrl: string;
   postBody: (id: string, promptOverride: string) => Record<string, unknown>;
   searchFields?: (item: EntityItem) => string[];
+  /** StyleRefsBanner 아래 / 메인 그리드 위에 렌더되는 선택적 커스텀 패널. */
+  topPanel?: React.ReactNode;
 };
 
 /**
@@ -53,6 +55,7 @@ export default function EntityGenerator(props: Props) {
     postGenerateUrl,
     postBody,
     searchFields,
+    topPanel,
   } = props;
 
   const [items, setItems] = useState<EntityItem[]>([]);
@@ -133,6 +136,8 @@ export default function EntityGenerator(props: Props) {
         <div className="mb-6">
           <StyleRefsBanner agent={agentName} entityId={selected?.id} />
         </div>
+
+        {topPanel && <div className="mb-6">{topPanel}</div>}
 
         <div className="grid grid-cols-12 gap-6">
           <aside className="col-span-4">
