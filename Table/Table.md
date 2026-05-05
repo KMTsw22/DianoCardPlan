@@ -8,6 +8,7 @@ Slay the Spire 스타일 덱빌딩 로그라이크 게임의 데이터 테이블
 | 파일 | 설명 | Key |
 |------|------|-----|
 | [card.csv](card.csv) | 카드 마스터 데이터 (공룡/마법/버프) | id |
+| [dino_skill.csv](dino_skill.csv) | 진화 공룡 시그니처 스킬 (T1/T2) | card_id |
 | [enemy.csv](enemy.csv) | 적 데이터 (일반/엘리트/보스) | id |
 | [potion.csv](potion.csv) | 물약 데이터 | id |
 | [relic.csv](relic.csv) | 유물(패시브) 데이터 | id |
@@ -44,6 +45,40 @@ Slay the Spire 스타일 덱빌딩 로그라이크 게임의 데이터 테이블
 - C1xx : 마법 카드
 - C2xx : 버프 카드
 - C3xx : 의식/유틸 카드
+
+---
+
+## dino_skill.csv
+
+T1·T2 진화 공룡의 **시그니처 스킬 1개**를 정의. T0(맨몸)는 일반 공격만 가능하므로 항목 없음.
+스킬은 카드 에너지와 별개의 **턴 단위 쿨다운** 자원을 사용하며, 매 턴 일반 공격에 추가로 발동.
+
+| 컬럼 | 타입 | 설명 |
+|------|------|------|
+| card_id | string | 대상 카드 ID (card.csv 의 _T1 / _T2 행 참조) |
+| skill_name_kr / skill_name_en | string | 스킬 이름 (T1·T2 동일) |
+| target | enum | ENEMY / ALL_ENEMY / SELF / ALLY |
+| damage | int | 1히트당 피해량 (0이면 비공격형) |
+| hits | int | 타격 횟수 |
+| cooldown | int 또는 "BATTLE" | 재사용까지 대기 턴 수. `BATTLE` = 전투당 1회 |
+| effects | string | 부가 효과. `effect:value` 페어를 `;` 로 구분 (예: `bleed:2;vulnerable:1`) |
+| description | string | 효과 설명 |
+
+### effects 값 규칙
+
+| 키 | 의미 |
+|----|------|
+| bleed | 적에게 출혈 N 부여 (매 턴 N 피해) |
+| vulnerable | 적에게 취약 N턴 부여 (받는 피해 50% 증가) |
+| weak | 적에게 약화 N턴 부여 (주는 피해 25% 감소) |
+| stun | 적에게 기절 N턴 부여 (행동 불가) |
+| draw | 카드 N장 드로우 |
+| self_block | 자신에게 보호막 N 부여 |
+
+### 진화 티어 스케일링 룰
+- **T0**: 일반 공격만, 스킬 없음
+- **T1**: 일반 공격 강화 + 스킬 해금
+- **T2**: 일반 공격·스킬 모두 위력/효과 강화 (수치 약 +50% 또는 보조 효과 1개 추가)
 
 ---
 

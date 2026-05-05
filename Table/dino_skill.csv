@@ -1,0 +1,15 @@
+card_id,skill_name_kr,skill_name_en,target,damage,hits,cooldown,effects,description
+C004_T1,연격,Pack Slash,ENEMY,6,2,2,bleed:1,단일 적 2회 타격(각 6) + 출혈 1
+C004_T2,연격,Pack Slash,ENEMY,9,2,2,bleed:2,단일 적 2회 타격(각 9) + 출혈 2
+C005_T1,돌진 박치기,Charge Ram,ENEMY,15,1,3,vulnerable:2,단일 적 큰 피해 + 취약 2턴
+C005_T2,돌진 박치기,Charge Ram,ENEMY,22,1,3,vulnerable:2;stun:1,단일 적 큰 피해 + 취약 2턴 + 기절 1턴
+C008_T1,패왕의 포효,Apex Roar,ALL_ENEMY,12,1,BATTLE,weak:2;self_block:8,전체 12 피해 + 약화 2턴 + 자신 보호막 8
+C008_T2,패왕의 포효,Apex Roar,ALL_ENEMY,18,1,BATTLE,weak:2;vulnerable:1;self_block:12,전체 18 피해 + 약화 2턴 + 취약 1턴 + 자신 보호막 12
+C010_T1,정찰 드론,Recon Drone,ENEMY,3,1,1,draw:1,가장 약한 적에 3 피해 + 카드 1장 드로우
+C010_T2,정찰 드론,Recon Drone,ENEMY,5,1,1,draw:2,가장 약한 적에 5 피해 + 카드 2장 드로우
+C006,급강하,Dive,ENEMY,8,1,2,evade_passive:30,단일 적에 8 피해. 패시브로 매 턴 시작 시 30% 회피
+C009,폭풍의 그림자,Storm Shadow,ALL_ENEMY,0,0,3,weak:1;vulnerable:1,모든 적 약화+취약 1턴 부여
+C012,강의 광폭,River Frenzy,SELF,0,0,3,self_hp:-5;next_atk_bonus:10,자기 HP -5 + 다음 공격 데미지 +10
+C012_T1,강의 광폭,River Frenzy,SELF,0,0,3,self_hp:-5;next_atk_bonus:14,자기 HP -5 + 다음 공격 데미지 +14
+C012_T2,강의 광폭,River Frenzy,SELF,0,0,3,self_hp:-5;next_atk_bonus:20;next_atk_bleed:3,자기 HP -5 + 다음 공격 데미지 +20 + 적에게 출혈 3
+C013,군주의 포효,Tyrant Roar,ALL_ENEMY,0,0,BATTLE,vulnerable:2;dmg_taken_amp:50,모든 적 취약 2턴 + 받는 피해 +50% (전투 1회)

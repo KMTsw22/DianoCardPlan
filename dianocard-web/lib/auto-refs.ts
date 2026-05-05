@@ -43,8 +43,8 @@ const CARDART_SUBDIR: Record<string, string> = {
  */
 const SUBTYPE_NEIGHBORS: Record<string, string[]> = {
   // 마법 계열
-  ATTACK: ["C101", "C103"],           // 공격 마법 / 화염구
-  DEFENSE: ["C102", "C104"],          // 방어 마법 / 수호 결계
+  ATTACK: ["C101", "C103"],           // 작열 송곳니 / 폭염 운석
+  DEFENSE: ["C102", "C104"],          // 룬 보주 / 이중 룬돔
   PURIFY: ["C202", "C104"],           // 정화 — 힐·방어 느낌(금빛 톤)
   // 버프 계열
   ATTACK_BUFF: ["C201", "C203"],      // 공격 강화 / 광폭화

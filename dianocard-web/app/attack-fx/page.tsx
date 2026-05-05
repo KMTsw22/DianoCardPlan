@@ -21,7 +21,7 @@ const PRESETS: Preset[] = [
   },
   {
     slug: "magic_fire",
-    label: "화염구 폭발",
+    label: "폭염 운석 폭발",
     concept:
       "중심에서 불꽃이 바깥으로 터지는 구체. 붉은·주황 그라데이션, 위쪽으로 더 격렬한 불꽃 트레일.",
   },

@@ -1,18 +1,21 @@
 id,name_kr,name_en,enemy_type,chapter,hp,attack,defense,ai_pattern,gold_min,gold_max,description,image
-E001,이끼 슬라임,Moss Slime,NORMAL,1,40,10,0,ATTACK,12,18,유적의 습기에서 태어난 이끼 덮인 청록 슬라임.,E001_MossSlime.png
-E002,바위 슬라임,Rock Slime,NORMAL,1,55,12,4,DEFEND_ATTACK,15,22,몸에 박힌 바위 조각이 등껍질처럼 단단하다.,E002_RockSlime.png
-E003,독 슬라임,Toxic Slime,NORMAL,1,35,14,0,POISON_ATTACK,14,20,부식성 독을 흘리는 보라빛 산성 슬라임.,E003_ToxicSlime.png
-E101,거대 골렘,Stone Golem,ELITE,1,60,10,5,DEFEND_ATTACK,30,40,튼튼한 엘리트.,
-E102,쌍둥이 도굴꾼,Twin Raiders,ELITE,1,40,8,0,ATTACK,30,40,2체로 등장.,
-E103,어둠의 사제,Dark Priest,ELITE,1,50,7,0,SUMMON_ATTACK,30,40,적을 소환한다.,
-E901,이끼 수호석상,Mossy Guardian,BOSS,1,320,22,6,PHASE_ATTACK,100,100,1챕터 보스. 덩굴에 뒤덮인 거대 석상.,
-E201,사막 도적,Desert Bandit,NORMAL,2,35,10,0,ATTACK,15,22,사막의 도적.,
-E202,모래 전갈,Sand Scorpion,NORMAL,2,28,11,0,POISON_ATTACK,12,18,독을 건다.,
-E203,망령 검사,Wraith Swordsman,NORMAL,2,40,9,3,DEFEND_ATTACK,18,25,유령 검사.,
-E902,피라미드의 왕,Pyramid King,BOSS,2,220,14,8,PHASE_ATTACK,150,150,2챕터 보스.,
-E301,용암 정령,Lava Elemental,NORMAL,3,50,13,0,BURN_ATTACK,20,28,화상을 건다.,
-E302,화산 트롤,Volcanic Troll,NORMAL,3,60,12,5,DEFEND_ATTACK,22,30,재생 능력.,
-E903,화산의 군주,Volcano Lord,BOSS,3,300,16,10,PHASE_ATTACK,200,200,3챕터 보스.,
-E401,심연의 사도,Abyss Cultist,NORMAL,4,70,15,5,SUMMON_ATTACK,28,38,수하를 소환.,
-E402,그림자 용,Shadow Drake,NORMAL,4,80,16,8,FLY_ATTACK,30,40,비행형.,
-E904,태초의 공룡왕,Primal Dino King,BOSS,4,500,20,15,PHASE_ATTACK,300,300,최종 보스.,
+E001,이끼 슬라임,Moss Slime,NORMAL,1,40,10,0,ATTACK,12,18,유적의 습기에서 태어난 이끼 덮인 청록 슬라임.,crow.png
+E002,바위 슬라임,Rock Slime,NORMAL,1,55,12,4,DEFEND_ATTACK,15,22,몸에 박힌 바위 조각이 등껍질처럼 단단하다.,crow.png
+E003,독 슬라임,Toxic Slime,NORMAL,1,35,14,0,POISON_ATTACK,14,20,부식성 독을 흘리는 보라빛 산성 슬라임.,crow.png
+E101,거대 골렘,Stone Golem,ELITE,1,60,10,5,DEFEND_ATTACK,30,40,튼튼한 엘리트.,E101_StoneGolem.png
+E102,쌍둥이 도굴꾼,Twin Raiders,ELITE,1,40,8,0,ATTACK,30,40,2체로 등장.,crow.png
+E103,어둠의 사제,Dark Priest,ELITE,1,50,7,0,SUMMON_ATTACK,30,40,적을 소환한다.,crow.png
+E901,이끼 수호석상,Mossy Guardian,BOSS,1,320,22,6,PHASE_ATTACK,100,100,1챕터 보스. 덩굴에 뒤덮인 거대 석상.,crow.png
+E201,추락한 사도,Fallen Apostle,NORMAL,2,50,13,0,EVADE_STRIKE,18,26,날개 부러진 채 떨어져 내린 천공 사도. 한 턴 회피 후 강타.,crow.png
+E202,종지기 망령,Bell Wraith,NORMAL,2,42,10,3,BIND_COUNTDOWN,16,24,깨진 종을 끌고 다니는 망령. 카운트다운 후 손패 1장을 봉인.,crow.png
+E203,빛 잃은 천사,Faded Seraph,NORMAL,2,55,11,5,BUFF_ATTACK,20,28,자가 영창으로 ATK를 영구 누적시키는 타락 천사. 빠른 처치 우선.,crow.png
+E902,천공의 모루,The Sky Anvil,BOSS,2,240,16,8,PHASE_ATTACK,150,150,2챕터 보스. 신들이 ember를 단조하던 거대한 모루. 망치/풍로/미완성 신검 3페이즈.,crow.png
+E204,좌초된 하늘고래,Stranded Sky Whale,ELITE,2,80,9,4,SUMMON_ATTACK,45,55,죽은 거대 익룡 위에 기생체가 매 턴 1마리 추가 소환된다. 본체 ATK 낮음·HP 높음.,crow.png
+E205,풍신의 잔해,Wind God's Husk,ELITE,2,65,13,6,DEFEND_ATTACK,40,50,폐허군주의 천공 사촌. 매 턴 자기에게 +5 block 자가 영창하며 강타.,crow.png
+E206,대천사의 그림자,Greater Seraph,ELITE,2,60,12,3,BUFF_COUNTDOWN,45,55,E203의 강화판. ATK 영구 누적 + 카운트다운 후 광역 신성 광선 (강제 처리 압박).,crow.png
+E301,용암 정령,Lava Elemental,NORMAL,3,50,13,0,BURN_ATTACK,20,28,화상을 건다.,crow.png
+E302,화산 트롤,Volcanic Troll,NORMAL,3,60,12,5,DEFEND_ATTACK,22,30,재생 능력.,crow.png
+E903,화산의 군주,Volcano Lord,BOSS,3,300,16,10,PHASE_ATTACK,200,200,3챕터 보스.,crow.png
+E401,심연의 사도,Abyss Cultist,NORMAL,4,70,15,5,SUMMON_ATTACK,28,38,수하를 소환.,crow.png
+E402,그림자 용,Shadow Drake,NORMAL,4,80,16,8,FLY_ATTACK,30,40,비행형.,crow.png
+E904,태초의 공룡왕,Primal Dino King,BOSS,4,500,20,15,PHASE_ATTACK,300,300,최종 보스.,crow.png

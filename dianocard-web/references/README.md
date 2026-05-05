@@ -21,7 +21,7 @@
 | `card-art/` | 카드 아트 | `card-art/C001/`, `card-art/C107/` |
 | `field-summon/` | 맵 소환수 | `field-summon/C001/` (소환 카드 전용) |
 | `field-monster/` | 맵 몬스터 | `field-monster/E004/`, `field-monster/E901/` |
-| `card-effect/` | 카드 사용 이펙트 | `card-effect/C101/` (공격 마법) |
+| `card-effect/` | 카드 사용 이펙트 | `card-effect/C101/` (작열 송곳니) |
 | `enemy-passive/` | 패시브 뱃지 | `enemy-passive/P_TWIN_RAGE/` |
 | `icon/` | 프리폼 아이콘 | (엔티티 폴더 불필요 — 프리폼이라 slug로 구분) |
 | `move-board/` | N프레임 모션 | `move-board/C001/` 등 |
@@ -59,9 +59,9 @@
 
 | sub_type | 자동 첨부 이웃 (최대 2장) |
 |----------|-------------------------|
-| ATTACK   | C101 공격 마법, C103 화염구 |
-| DEFENSE  | C102 방어 마법, C104 수호 결계 |
-| PURIFY   | C202 전체 힐, C104 수호 결계 (금빛/회복 톤) |
+| ATTACK   | C101 작열 송곳니, C103 폭염 운석 |
+| DEFENSE  | C102 룬 보주, C104 이중 룬돔 |
+| PURIFY   | C202 전체 힐, C104 이중 룬돔 (금빛/회복 톤) |
 | HEAL     | C202, C205 재생 |
 | TAUNT    | C203 광폭화, C206 분노의 함성 (붉은 오라) |
 | ATTACK_BUFF | C201 공격 강화, C203 광폭화 |
