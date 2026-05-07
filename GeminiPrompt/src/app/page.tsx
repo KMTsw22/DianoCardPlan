@@ -12,13 +12,17 @@ type ModelConfig = {
 };
 
 const MODELS: ModelConfig[] = [
-  { id: "gemini-3-pro-image-preview", name: "Gemini 3 Pro Image (Vertex)", tier: "최고 품질 · $300 크레딧", provider: "vertex" },
-  { id: "gemini-2.5-flash-image", name: "Gemini 2.5 Flash Image (Vertex)", tier: "나노바나나 🍌 · $300 크레딧", provider: "vertex" },
-  { id: "gemini-3-pro-image-preview", name: "Gemini 3 Pro Image", tier: "최고 품질", provider: "gemini" },
-  { id: "gemini-3.1-flash-image-preview", name: "Gemini 3.1 Flash Image", tier: "고품질 + 빠름", provider: "gemini" },
-  { id: "gemini-2.5-flash-image", name: "Gemini 2.5 Flash Image", tier: "안정적", provider: "gemini" },
-  { id: "nano-banana-pro-preview", name: "Nano Banana Pro", tier: "나노바나나 🍌", provider: "gemini" },
-  { id: "gemini-2.0-flash", name: "Gemini 2.0 Flash", tier: "경량", provider: "gemini" },
+  // ── yeongje 서버 (global, 확인된 동작 모델) ──────────────────────────────
+  { id: "gemini-2.0-flash-preview-image-generation", name: "Gemini 2.0 Flash Image (Vertex) -yeongje", tier: "이미지 생성 · $300 크레딧", provider: "vertex" },
+  // ── mintae 서버 (원래 목록 — 서버 환경이 다를 수 있음) ──────────────────
+  { id: "gemini-3-pro-image-preview", name: "Gemini 3 Pro Image (Vertex) -mintae", tier: "최고 품질 · $300 크레딧", provider: "vertex" },
+  { id: "gemini-2.5-flash-image", name: "Gemini 2.5 Flash Image (Vertex) -mintae", tier: "나노바나나 🍌 · $300 크레딧", provider: "vertex" },
+  { id: "gemini-3-pro-image-preview", name: "Gemini 3 Pro Image -mintae", tier: "최고 품질", provider: "gemini" },
+  { id: "gemini-3.1-flash-image-preview", name: "Gemini 3.1 Flash Image -mintae", tier: "고품질 + 빠름", provider: "gemini" },
+  { id: "gemini-2.5-flash-image", name: "Gemini 2.5 Flash Image -mintae", tier: "안정적", provider: "gemini" },
+  { id: "nano-banana-pro-preview", name: "Nano Banana Pro -mintae", tier: "나노바나나 🍌", provider: "gemini" },
+  { id: "gemini-2.0-flash", name: "Gemini 2.0 Flash -mintae", tier: "경량", provider: "gemini" },
+  // ── OpenAI ────────────────────────────────────────────────────────────────
   { id: "gpt-image-2", name: "GPT Image 2.0", tier: "OpenAI 최신", provider: "openai" },
   { id: "gpt-image-1", name: "GPT Image 1.0", tier: "OpenAI 안정", provider: "openai" },
 ];
