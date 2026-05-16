@@ -1,0 +1,30 @@
+Use the provided 6 storyboard panels as the sequence guide, in order from 1 to 6.
+
+Create a 15-second dark fantasy anime game-trailer sequence.
+
+Style:
+Clean dark 2D anime cutscene, matte stone, deep black-blue shadows, sparse warm amber glow, cold purple-grey mist, calm black water, cinematic game-trailer mood. No UI, no text, no subtitles, no photorealism, no 3D render.
+
+[00:00-00:02.5]
+Panel 1. The glowing amber crystal rests on cracked stone inside the ruined temple. The crystal pulses softly. Tiny ember particles drift upward. Camera makes a very slow subtle push-in.
+
+[00:02.5-00:05.0]
+Panel 2. A small wooden boat glides slowly through the black water channel. Akene sits at the front from behind, the hooded rower behind her. The boat lantern sways faintly. Water reflections tremble softly. No splashing.
+
+[00:05.0-00:07.0]
+Panel 3. Akene steps onto the cracked stone near the black water. Show her boots and lower body. Her boot lands quietly, settles with a small natural weight shift, then stops completely. No ripple rings, no falling droplets, no splash.
+
+[00:07.0-00:09.5]
+Panel 4. Akene stands still from behind. The background is dark at first, then tiny dim red eyes begin to appear unevenly in the far darkness between pillars. They do not appear all at once. No monster bodies.
+
+[00:09.5-00:12.0]
+Panel 5. Akene raises one gloved hand. A small amber fragment glows softly, lighting her glove, hair edge, red outfit, and nearby stone. The red eyes blink irregularly in the distance.
+
+[00:12.0-00:15.0]
+Panel 6. Wide final standoff. Akene stands small beside the black water, amber glow in hand. Many tiny dim red eyes watch from the ruined temple darkness. Hold the scene in quiet tension.
+
+Motion rules:
+Slow cinematic movement only. Gentle mist drift, torch flicker, lantern sway, calm water reflections, soft skirt sway, subtle amber glow, irregular blinking red eyes.
+
+Avoid:
+No monster bodies, no creature silhouettes, no fast action, no camera shake, no splash, no falling water droplets, no circular ripple rings, no synchronized eyes, no UI, no text.

@@ -1,0 +1,114 @@
+Use the first attached image as the PART 5 storyboard, scene, composition, camera, mood, and sequence reference.
+
+Use the second attached image as the LOCKED character master reference for Akene.
+Use the third attached image as the LOCKED master reference for the green herbivore guardian beast.
+Use the fourth attached image as the LOCKED master reference for the black armored red carnivore predator beast.
+
+Create a 15-second dark fantasy anime card-battle trailer sequence by animating the six storyboard panels from the first attached image in order.
+
+Character and creature consistency is the highest priority.
+
+Akene must always match the second attached character master reference:
+same face shape, same sharp anime eyes, same blonde hair shape, same bangs, same side hair, same messy detailed hair strands, same skin tone, same slim body proportions, same red dark-fantasy outfit, same calm serious melancholic expression.
+Do not redesign Akene.
+Do not make her chibi, young, cute, or simplified.
+
+The green herbivore guardian must always match the third attached master reference:
+same broad heavy body, same stone-armored shell, same mossy green surface, same calm protective feeling, same glowing green instinct markings, same thick legs and heavy claws.
+It must stay on screen-left.
+It must feel defensive, grounded, and protective.
+
+The black armored red carnivore predator must always match the fourth attached master reference:
+same black metallic armored dinosaur body, same aggressive silhouette, same red glowing core lights, same sharp teeth, same red ember lines, same threatening predator feeling.
+It must stay on screen-right.
+It must feel aggressive, dangerous, and attack-oriented.
+
+Do not copy the backgrounds from the master reference images.
+Only use the master references to preserve Akene and the two summoned beasts.
+
+Style:
+Clean dark 2D anime cutscene, smooth cel-animation look, matte painted surfaces, cinematic dark fantasy game-trailer atmosphere, deep black-blue shadows, ruined battlefield, cold purple-grey sky, sparse amber ember glow, restrained green guardian light, restrained red carnivore ember light, cold mist, painterly anime look.
+No UI, no subtitles, no captions, no visible text, no photorealism, no 3D render.
+
+[00:00-00:02.5]
+Akene stands alone in a dark ruined arena, already in battle stance.
+She holds a small amber fragment in one hand.
+The camera slowly pushes in.
+Wind gently moves her blonde hair and red skirt.
+Her expression is calm, serious, and ready.
+Akene must match the character master reference exactly.
+
+[00:02.5-00:05.0]
+On screen-left, green herbivore instinct energy rises from the ground beside Akene.
+Root-like green light spreads across the cracked stone floor.
+Soft green particles float upward and form a restrained summoning circle.
+Akene does not turn around.
+She stays centered and calm.
+The green energy must remain on screen-left.
+
+[00:05.0-00:07.5]
+The green herbivore guardian forms on screen-left beside Akene.
+Its heavy stone-armored body gradually emerges from green light, dust, and mist.
+It becomes broad, calm, grounded, and protective.
+It lowers its body slightly and settles into a defensive stance.
+The creature must match the green guardian master reference exactly.
+
+[00:07.5-00:10.0]
+On screen-right, red carnivore instinct energy ignites beside Akene.
+Dark smoke coils upward from the ground.
+Muted red ember lines and black armor fragments begin forming a predator shape.
+The energy is intense but controlled.
+Akene remains centered and does not move toward either side.
+The red energy must remain on screen-right.
+
+[00:10.0-00:12.5]
+The black armored carnivore dinosaur completes on screen-right.
+Its red core lights pulse slowly through the armor.
+Its head lowers forward with a dangerous predator posture.
+Akene stands between both summons, calm and balanced.
+The carnivore must match the black armored red predator master reference exactly.
+
+[00:12.5-00:15.0]
+Final battle formation.
+Screen-left: the green guardian raises its head in a protective roar.
+Center: Akene stands calm and ready, holding the amber fragment.
+Screen-right: the red carnivore raises its head in an aggressive roar.
+Green light and red ember light reflect subtly on Akene from both sides.
+Hold the tension before battle with a slow cinematic push-in.
+End on the three-character formation.
+
+Motion:
+Slow cinematic buildup, subtle camera push-in, summoning energy rising from the ground, gradual armor formation, soft green pulse, red core lights pulsing, cold mist drifting, small embers floating, wind moving Akene’s hair and skirt, final dual roar held dramatically.
+No fast action.
+No camera shake.
+
+Keep:
+- six-panel storyboard order from the first attached image
+- Akene centered
+- green guardian always on screen-left
+- red carnivore always on screen-right
+- ruined dark fantasy arena
+- calm protective green side
+- aggressive red carnivore side
+- cinematic anime game-trailer tone
+
+Avoid:
+Do not swap positions.
+Do not put green on the right.
+Do not put red on the left.
+Do not make Akene turn around.
+Do not make Akene ride the dinosaur.
+Do not make Akene transform.
+Do not add a sword or new weapon.
+Do not add extra characters.
+Do not redesign Akene.
+Do not redesign either beast.
+Do not make the green guardian aggressive like a predator.
+Do not make the red carnivore calm or cute.
+Do not use huge explosions.
+Do not use giant beams.
+Do not use lightning cracks all over the body.
+Do not add UI, subtitles, logos, captions, or readable text.
+Do not make it photorealistic.
+Do not make it look like 3D.
+Do not change the story order.

@@ -1,0 +1,93 @@
+Use the provided final storyboard image as the visual reference.
+Create a 15-second dark fantasy anime game-trailer ending sequence for LAST EMBER.
+
+Style:
+Clean dark cinematic 2D anime trailer.
+Deep black background.
+Cold purple-grey fog.
+Sparse warm amber ember glow.
+Matte painted shadows.
+Minimal motion.
+No photorealism.
+No 3D render.
+No UI.
+No extra logos.
+
+Important title lock:
+The LAST EMBER title must stay in the same position, same size, same height, and same alignment when EARLY ACCESS appears.
+EARLY ACCESS should appear underneath the already existing title.
+Do not move the LAST EMBER title upward or downward.
+Do not resize the LAST EMBER title between shots.
+
+[00:00-00:03.0]
+A huge unclear final boss shadow stands in distant purple-grey fog among ruined silhouettes.
+Only the massive silhouette is visible.
+No clear face, no eyes, no details.
+The fog slowly drifts.
+The mood is ancient and threatening.
+
+[00:03.0-00:06.0]
+The boss shadow becomes slightly larger and more threatening in the fog.
+At the lower center inside the image, two lines of small white serif text fade in:
+THE RUIN CALLS.
+CHOOSE YOUR INSTINCT.
+Keep the text readable, centered, and calm.
+No extra text.
+
+[00:06.0-00:09.0]
+Cut to black ember background.
+The title LAST EMBER fades in at the center.
+Use large aged gold serif fantasy letters, worn metal texture, subtle amber edge glow.
+Hold the title in a fixed position.
+
+[00:09.0-00:12.0]
+Keep the LAST EMBER title in exactly the same position, same height, same size, and same alignment.
+EARLY ACCESS fades in underneath the title in small clean white serif typewriter-style text.
+Only EARLY ACCESS appears below.
+Do not move the title.
+
+[00:12.0-00:14.2]
+Cut to a simple black ember background.
+Large centered text appears:
+2026
+Use clean readable aged-gold or white serif lettering.
+Small ember particles drift upward.
+Hold quietly.
+
+[00:14.2-00:15.0]
+Fade to black.
+Only a tiny dying amber ember glow remains near the bottom center, then disappears.
+
+Motion:
+Slow fog movement.
+Very subtle ember particles.
+Slow text fade-in.
+No camera shake.
+No fast zoom.
+No flashy transition.
+No explosion.
+No lightning.
+No firestorm.
+
+Text rules:
+Spell exactly:
+LAST EMBER
+EARLY ACCESS
+2026
+THE RUIN CALLS.
+CHOOSE YOUR INSTINCT.
+
+Avoid:
+Do not write 2025.
+Do not change 2026.
+Do not misspell LAST EMBER.
+Do not misspell EARLY ACCESS.
+Do not move the LAST EMBER title when EARLY ACCESS appears.
+Do not add extra random letters.
+Do not add subtitles.
+Do not add UI.
+Do not add logos or watermarks.
+Do not show a clear monster face.
+Do not show monster eyes.
+Do not make the boss detailed.
+Do not use photorealism or 3D.

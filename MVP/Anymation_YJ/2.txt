@@ -1,0 +1,36 @@
+Use the provided PART 4 storyboard image as the visual reference and animate the six panels in order as one 15-second dark fantasy anime game-trailer sequence.
+
+Style:
+Clean dark 2D anime cutscene, smooth cel animation look, matte painted surfaces, deep black-blue shadows, sparse warm amber candle glow, cold purple-grey atmosphere, restrained green and red instinct light.
+No UI, no subtitles, no visible text added, no photorealism, no 3D render.
+
+[00:00-00:02.5]
+Close shot of old dinosaur cards and relics on a dark ritual mat. Amber candlelight flickers softly. The cards stay mostly unreadable, with only faint worn dinosaur illustrations visible.
+
+[00:02.5-00:05.0]
+A mysterious gloved hand slowly reaches forward over the cards, offering two paths. The hand does not pick up a card. The objects remain still except for subtle candle flicker.
+
+[00:05.0-00:07.5]
+The masked hooded guide sits behind the card spread. The guide barely moves, only a slight head lift and tiny finger movement. Amber light touches the mask edge. Keep the face hidden.
+
+[00:07.5-00:10.0]
+Hard cut to Akene in a completely different ruined exterior. She walks away from camera across a broken rooftop or balcony under a dead sky, then slows as something stirs inside her. Wind gently moves her hair and red skirt.
+
+[00:10.0-00:12.5]
+Medium side-back shot of Akene. Soft green herbivore instinct light and muted red carnivore instinct light pulse inside her body and along her outfit edges. The effect is internal and restrained, not electric cracks, not a huge aura.
+
+[00:12.5-00:15.0]
+Side-profile close-up of Akene. Her visible eye reflects both green and red. One side of her hair catches faint green light, the other side catches muted red-orange light. She stays calm but conflicted. Hold the tension.
+
+Motion:
+Slow cinematic movement, subtle candle flicker, faint drifting smoke, gentle wind on Akene’s hair and skirt, soft internal green and red pulses, minimal camera push-in.
+
+Avoid:
+Do not show a card being chosen.
+Do not show readable card text.
+Do not add UI or subtitles.
+Do not turn Akene fully green or fully red.
+Do not redesign Akene.
+Do not add weapons.
+Do not make the energy look like lightning cracks.
+Do not use huge aura, explosion, beam, camera shake, photorealism, or 3D.
